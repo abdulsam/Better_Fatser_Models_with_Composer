@@ -13,6 +13,7 @@ Four functions I used in the training of the model.
 4. MixUp
 
 **1. RandAugment:**
+
    RandAugment applies random depth image augmentations sequentially from a set of augmentations (e.g. translation, shear, contrast) with severity values randomly selected from 0 to 10. This regularization method during training enhances network generalization.
 <!--pytest.mark.filterwarnings(r'ignore:Some targets have less than 1 total probability:UserWarning')-->
 <!--pytest.mark.filterwarnings('ignore:Cannot split tensor of length .* into batches of size 128.*:UserWarning')-->
@@ -26,7 +27,8 @@ transform_train_data = transforms.Compose([
 ])
 ```
 
-**2. BlurPool**
+**2. BlurPool:**
+
 BlurPool enhances the accuracy of convolutional neural networks without significantly slowing them down. It achieves this by using a low-pass filter before pooling and strided convolution operations, which helps reduce distortion (aliasing) in the processed images.
 <!--pytest.mark.filterwarnings(r'ignore:Some targets have less than 1 total probability:UserWarning')-->
 <!--pytest.mark.filterwarnings('ignore:Cannot split tensor of length .* into batches of size 128.*:UserWarning')-->
@@ -45,7 +47,8 @@ CF.apply_blurpool(
 net = net.to(device)
 ```
 
-**3. MixUp**
+**3. MixUp:**
+
 The following paragraph I copied from [the bag of tricks](https://arxiv.org/abs/1812.01187) paper. 
 "Here we consider another augmentation method called mixup. In mixup, each time we randomly sample two examples (xi, yi) and (xj , yj ). Then we form a new example by a weighted linear interpolation of these two examples:
 x-hat = λxi + (1 − λ)xj
@@ -59,7 +62,8 @@ where λ ∈ [0, 1] is a random number drawn from the Beta(α, α) distribution.
         outputs = net(X_mixed)
 ```
 
-**4. Label Smoothing**
+**4. Label Smoothing:**
+
 It is proposed by Christian Szegedy in [this](https://arxiv.org/abs/1512.00567) paper. It actually acts as a regularizer technique. The composer makes this function very easy to use.
 <!--pytest.mark.filterwarnings(r'ignore:Some targets have less than 1 total probability:UserWarning')-->
 <!--pytest.mark.filterwarnings('ignore:Cannot split tensor of length .* into batches of size 128.*:UserWarning')-->

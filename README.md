@@ -1,33 +1,11 @@
 # PyTorch ResNet-152: Mastering Model Training with MosaicML [Composer](https://www.mosaicml.com/composer) and [Weights & Biases](https://wandb.ai/)
-### Follow these steps to run the code
-
-1. Install Weights & Biases
-   
-    ```%pip install wandb -q```  
-2. Install PyTorch Model Summary Library for getting layer by layer summary of a model
-
-    ```pip install pytorch-model-summary```
-3. Install PTFLOPS for counting floating point operations
-
-    ```pip install ptflops```
-4. Login to your WandB account so you can log all your metrics
-
-    ```import wandb```
-   
-    ```wandb.login()```
-5. Initialize a new run and specify your project name on WandB
-
-    ```wandb.init(project="[YOUR_PROJECT_NAME]")```
-6. Install Composer Library
-
-   ```!pip install mosaicml```
-7. Execute the [main.py](https://github.com/abdulsam/Better_Fatser_Models_with_Composer/blob/main/main.py) file.
 
 # **Welcome**
 
 Composer is an open-source deep learning training library by [MosaicML](https://www.mosaicml.com/). Built on top of PyTorch, the Composer library makes it easier to implement distributed training workflows on large-scale clusters.
 
 I have implemented a slightly modified ResNet-152 model on the CIFAR-10 dataset, which achieved an accuracy of 97.02% after training for 200 epochs. However, I made some improvements by incorporating three additional composer library functions, and this enhanced ResNet-152 model achieved a higher accuracy. Notably, these improvements helped in saving both computation time and overall training time.
+
 
 Four functions I used in the training of the model.
 1. RandAugment
@@ -97,5 +75,26 @@ It is proposed by Christian Szegedy in [this](https://arxiv.org/abs/1512.00567) 
 loss = (1 - mixing) * criterion(outputs, smoothed_targets) + mixing * criterion(outputs, y_perm)
 ```
 
+### Follow the following steps to run the code
 
+1. Install Weights & Biases
+   
+    ```%pip install wandb -q```  
+2. Install PyTorch Model Summary Library for getting layer by layer summary of a model
 
+    ```pip install pytorch-model-summary```
+3. Install PTFLOPS for counting floating point operations
+
+    ```pip install ptflops```
+4. Login to your WandB account so you can log all your metrics
+
+    ```import wandb```
+   
+    ```wandb.login()```
+5. Initialize a new run and specify your project name on WandB
+
+    ```wandb.init(project="[YOUR_PROJECT_NAME]")```
+6. Install Composer Library
+
+   ```!pip install mosaicml```
+7. Execute the [main.py](https://github.com/abdulsam/Better_Fatser_Models_with_Composer/blob/main/main.py) file.

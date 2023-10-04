@@ -6,7 +6,6 @@ Composer is an open-source deep learning training library by [MosaicML](https://
 
 I have implemented a slightly modified ResNet-152 model on the CIFAR-10 dataset, which achieved an accuracy of 97.02% after training for 200 epochs. However, I made some improvements by incorporating three additional composer library functions, and this enhanced ResNet-152 model achieved a higher accuracy. Notably, these improvements helped in saving both computation time and overall training time.
 
-
 Four functions I used in the training of the model.
 1. RandAugment
 2. BlurPool
@@ -74,6 +73,10 @@ It is proposed by Christian Szegedy in [this](https://arxiv.org/abs/1512.00567) 
 ```python
 loss = (1 - mixing) * criterion(outputs, smoothed_targets) + mixing * criterion(outputs, y_perm)
 ```
+
+*Note*: These techniques make the training of a model harder. That is why, the accuracy of training data is lower than the accuracy of test data. 
+
+![Train Vs Test Accuracy](TrainVsTest.png)
 
 ### Follow the following steps to run the code
 

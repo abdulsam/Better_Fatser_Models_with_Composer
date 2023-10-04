@@ -23,3 +23,8 @@
 
    ```!pip install mosaicml```
 7. Execute the [main.py](https://github.com/abdulsam/Better_Fatser_Models_with_Composer/blob/main/main.py) file.
+
+# **👋 Welcome**
+
+Composer is an open-source deep learning training library by [MosaicML](https://www.mosaicml.com/). Built on top of PyTorch, the Composer library makes it easier to implement distributed training workflows on large-scale clusters.
+
